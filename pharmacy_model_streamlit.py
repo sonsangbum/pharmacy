@@ -9,7 +9,7 @@ user_password = st.sidebar.text_input("패스워드 입력", value="",type="pass
 if user_id=='phar' and user_password == "1234" :
 
   # 데이터셋 불러오기
-  df = pd.read_excel('data\\pharmacy_data.xlsx') 
+  df = pd.read_excel('pharmacy_data.xlsx') 
 
   df.drop(columns=['Unnamed: 0'], inplace=True)
   df.drop(columns=['weekday'], inplace=True)
