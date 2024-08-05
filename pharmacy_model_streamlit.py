@@ -103,8 +103,8 @@ if user_id=='phar' and user_password == "1234" :
   naver_link = "https://search.naver.com/search.naver?where=nexearch&sm=top_sly.hst&fbm=0&acr=1&ie=utf8&query=%EB%82%A0%EC%94%A8+%EC%82%AC%EB%8B%B9%EB%8F%99"
   st.markdown(f"->네이버 날씨로 이동:")
   st.markdown(f"{naver_link}")
-  val_year = st.number_input("1.년도 입력(예: 2024년->2024)", value=today.year, width=100) 
-  val_month = st.number_input("2.월 입력(예: 8월->8)", value=today.month, width=100)  
+  val_year = st.number_input("1.년도 입력(예: 2024년->2024)", value=today.year) 
+  val_month = st.number_input("2.월 입력(예: 8월->8)", value=today.month)  
   val_weekday = st.number_input("3.요일 입력하세요. (예:월:0,화:1,수:2,목:3,금:4,토:5)", min_value=0, max_value=5, step=1, format="%d")
   val_mintemp= st.number_input("4.예상 최저온도를 입력")
   val_rainfall= st.number_input("5.예상 강수량(mm)을 입력")
