@@ -97,7 +97,7 @@ if user_id=='phar' and user_password == "1234" :
   st.write("○오류률: ", f'{MSLE_val:.2f}%')
   st.write("○예측률: ", f'{R2_val:.2f}%')
   st.write("")
-  st.write("▷7가지 인자를 입력해주세요")
+  st.write("▷8가지 인자를 입력해주세요")
   st.write("-> 입력 중에는 화면이 흐려집니다. 흐려져도 하단 '저장'을 누를때까지 계속 입력하세요")
   naver_link = "https://search.naver.com/search.naver?where=nexearch&sm=top_sly.hst&fbm=0&acr=1&ie=utf8&query=%EB%82%A0%EC%94%A8+%EC%82%AC%EB%8B%B9%EB%8F%99"
   st.markdown(f"->네이버 날씨로 이동:")
@@ -106,10 +106,10 @@ if user_id=='phar' and user_password == "1234" :
   val_month = st.number_input("2.월 입력(예: 8월->8)", value=today.month)  
   val_weekday = st.number_input("3.요일 입력(예:월:0,화:1,수:2,목:3,금:4,토:5)", min_value=0, max_value=5, step=1, format="%d")
   val_SC= st.number_input("4.예상 일조량을 입력(맑음:0,구름조금:25,구름많음:50,흐림:75)")
-  val_mintemp= st.number_input("4.예상 최저온도를 입력")
-  val_rainfall= st.number_input("5.예상 강수량(mm)을 입력")
-  val_maxwindspeed= st.number_input("6.예상 최대풍속을 입력")
-  val_minhumidity= st.number_input("7.예상 최저습도 입력")
+  val_mintemp= st.number_input("5.예상 최저온도를 입력")
+  val_rainfall= st.number_input("6.예상 강수량(mm)을 입력")
+  val_maxwindspeed= st.number_input("7.예상 최대풍속을 입력")
+  val_minhumidity= st.number_input("8.예상 최저습도 입력")
   # st.write("")
 
 
