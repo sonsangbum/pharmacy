@@ -9,13 +9,12 @@ user_password = st.sidebar.text_input("패스워드 입력", value="",type="pass
 if user_id=='phar' and user_password == "1234" :
 
   # 데이터셋 불러오기
-  df = pd.read_excel('pharmacy_data.xlsx') 
+  df = pd.read_excel('data\pharmacy_data.xlsx') 
 
   df.drop(columns=['Unnamed: 0'], inplace=True)
   df.drop(columns=['weekday'], inplace=True)
   df.drop(columns=['ahumidity'], inplace=True)
   df.drop(columns=['SS'], inplace=True)
-  df.drop(columns=['SC'], inplace=True)
   df.drop(columns=['SR'], inplace=True)
   df.drop(columns=['maxtemp'], inplace=True)
   df.drop(columns=['atemp'], inplace=True)
@@ -105,7 +104,8 @@ if user_id=='phar' and user_password == "1234" :
   st.markdown(f"{naver_link}")
   val_year = st.number_input("1.년도 입력(예: 2024년->2024)", value=today.year) 
   val_month = st.number_input("2.월 입력(예: 8월->8)", value=today.month)  
-  val_weekday = st.number_input("3.요일 입력하세요. (예:월:0,화:1,수:2,목:3,금:4,토:5)", min_value=0, max_value=5, step=1, format="%d")
+  val_weekday = st.number_input("3.요일 입력(예:월:0,화:1,수:2,목:3,금:4,토:5)", min_value=0, max_value=5, step=1, format="%d")
+  val_SC= st.number_input("4.예상 일조량을 입력(맑음:0,구름조금:25,구름많음:50,흐림:75)")
   val_mintemp= st.number_input("4.예상 최저온도를 입력")
   val_rainfall= st.number_input("5.예상 강수량(mm)을 입력")
   val_maxwindspeed= st.number_input("6.예상 최대풍속을 입력")
@@ -114,7 +114,7 @@ if user_id=='phar' and user_password == "1234" :
 
 
   if st.button("저장"):
-    new_data_point =[val_minhumidity,val_rainfall,val_mintemp,val_maxwindspeed,val_year,val_month,val_weekday]
+    new_data_point =[val_minhumidity,val_SC,val_rainfall,val_mintemp,val_maxwindspeed,val_year,val_month,val_weekday]
     # 랜덤 포레스트 모델에 적용하여 예측값 b 계산
     predicted_b = rf_model.predict([new_data_point])
 
