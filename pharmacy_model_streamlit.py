@@ -108,7 +108,7 @@ if user_id=='phar' and user_password == "1234" :
   val_weekday = st.number_input("4.요일 입력(예:월:0,화:1,수:2,목:3,금:4,토:5)", min_value=0, max_value=5, step=1, format="%d")
   val_SC= st.number_input("5.예상 일조량을 입력(맑음:0,구름조금:25,구름많음:50,흐림:75)", min_value=0, max_value=100, step=1, format="%d")
   val_mintemp= st.number_input("6.예상 최저(▽)온도를 입력")
-  al_maxtemp=st.number_input("7.예상 최고(▲)온도를 입력")
+  val_maxtemp=st.number_input("7.예상 최고(▲)온도를 입력")
   val_rainfall= st.number_input("8.예상 강수량(mm)을 입력")
   val_maxwindspeed= st.number_input("9.예상 최대풍속을 입력")
   val_minhumidity= st.number_input("10.예상 최저습도 입력")
@@ -116,7 +116,7 @@ if user_id=='phar' and user_password == "1234" :
 
 
   if st.button("저장"):
-    new_data_point =[val_minhumidity,val_SC,val_rainfall,val_mintemp,val_maxwindspeed,val_year,val_month,val_weekday,val_day]
+    new_data_point =[val_minhumidity,val_SC,val_rainfall,val_maxtemp,val_mintemp,val_maxwindspeed,val_year,val_month,val_weekday,val_day]
     # 랜덤 포레스트 모델에 적용하여 예측값 b 계산
     predicted_b = rf_model.predict([new_data_point])
 
