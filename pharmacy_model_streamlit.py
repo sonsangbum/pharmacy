@@ -124,17 +124,17 @@ if user_id=='phar' and user_password == "1234" :
     st.write("■ 예측 값을 출력합니다.")
 
     ##예측값 출력
-    if val_weekday =='2' :
+    if val_weekday ==2 :
       st.write(f"▶▶예측 조제건수: {predicted_b[0]}")
       st.write("▶수요일은 가중치 30%적용한 값도 제공합니다.")
       predicted_b=predicted_b[0] * 1.3
       st.write(f"▶▶가중치적용 예측 조제건수: {predicted_b:.2f}")
-    elif val_weekday =='3' :
+    elif val_weekday ==3 :
       st.write(f"▶▶예측 조제건수: {predicted_b[0]}")
       st.write("▶목요일은 가중치 -30%적용한 값도 제공합니다.")
       predicted_b=predicted_b[0] * 0.7
       st.write(f"▶▶가중치적용 예측 조제건수: {predicted_b:.2f} ")
-    elif val_weekday == '4' :
+    elif val_weekday == 4 :
       st.write(f"▶▶예측 조제건수: {predicted_b[0]}")
       st.write("▶금요일은 가중치 30%적용한 값도 제공합니다.")
       predicted_b=predicted_b[0] * 1.3
