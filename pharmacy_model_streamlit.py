@@ -116,7 +116,7 @@ if user_id=='phar' and user_password == "1234" :
 
 
   if st.button("저장"):
-    new_data_point =[val_minhumidity,val_SC,val_rainfall,val_mintemp,val_maxwindspeed,val_year,val_month,val_weekday]
+    new_data_point =[val_minhumidity,val_SC,val_rainfall,val_mintemp,val_maxwindspeed,val_year,val_month,val_weekday,val_day]
     # 랜덤 포레스트 모델에 적용하여 예측값 b 계산
     predicted_b = rf_model.predict([new_data_point])
 
