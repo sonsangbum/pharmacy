@@ -104,7 +104,7 @@ if user_id=='phar' and user_password == "1234" :
   st.markdown(f"{naver_link}")
   val_year = st.number_input("1.년도 입력(예: 2024년->2024)", value=today.year) 
   val_month = st.number_input("2.월 입력(예: 8월->8)", value=today.month)
-  val_day=st.number_input("3. 일 입력(예: 12일 -> 12)", value=today.day)
+  val_day=st.number_input("3.일 입력(예: 12일 -> 12)", value=today.day)
   val_weekday = st.number_input("4.요일 입력(예:월:0,화:1,수:2,목:3,금:4,토:5)", min_value=0, max_value=5, step=1, format="%d")
   val_SC= st.number_input("5.예상 일조량을 입력(맑음:0,구름조금:25,구름많음:50,흐림:75)", min_value=0, max_value=100, step=1, format="%d")
   val_mintemp= st.number_input("6.예상 최저(▽)온도를 입력")
