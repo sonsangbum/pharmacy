@@ -1,6 +1,9 @@
 import pandas as pd
 import streamlit as st
 
+#메인바 화면
+st.subheader("조제건수 예측합니다.",divider='rainbow')
+
 #사이드바 화면
 st.sidebar.header("로그인")
 user_id = st.sidebar.text_input("아이디 입력", value="",max_chars=15)
@@ -93,7 +96,6 @@ if user_id=='phar' and user_password == "1234" :
   today = date.today()
   
   #메인 화면(오른쪽 화면)
-  st.subheader("조제건수 예측합니다.",divider='rainbow')
   st.write("○오류률: ", f'{MSLE_val:.2f}%')
   st.write("○예측률: ", f'{R2_val:.2f}%')
   st.write("")
