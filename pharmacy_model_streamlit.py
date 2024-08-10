@@ -94,7 +94,7 @@ if user_id=='phar' and user_password == "1234" :
 
   ### 코로나 기간
 
-  df_COVID19 = pd.read_excel("data\pharmacydata_COVID19.xlsx")   #코로나 기간
+  df_COVID19 = pd.read_excel("pharmacydata_COVID19.xlsx")   #코로나 기간
 
   df_COVID19.drop(columns=['Unnamed: 0'], inplace=True)
   df_COVID19.drop(columns=['weekday'], inplace=True)
@@ -269,5 +269,3 @@ if user_id=='phar' and user_password == "1234" :
     st.markdown(html, unsafe_allow_html=True)
 else :
   st.write("로그인 하세요(로그인 대기시간 약20초)")
-
-  ##   streamlit run pharmacy_model_streamlit.py
