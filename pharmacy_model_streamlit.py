@@ -264,7 +264,7 @@ if user_id=='phar' and user_password == "1234" :
     # 원하는 URL
     url = 'http://naver.me/5k7LrkMC'
     # 새 창에서 URL 열기
-    st.markdown(f"{url}")
+    st.markdown(f"분석자료 바로가기 링크: {url}")
 else :
   st.write("로그인 하세요(로그인 대기시간 약20초)")
 
