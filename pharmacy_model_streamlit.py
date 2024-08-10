@@ -261,11 +261,12 @@ if user_id=='phar' and user_password == "1234" :
       st.write("월요일부터 토요일까지 예측값만 출력됩니다.")
 
   if st2.button("분석자료"):
-    # PDF 파일 링크
-    pdf_link = 'pharmacy_조제건수예측.pdf'
-    # JavaScript를 사용하여 새 창에서 PDF 파일 열기
-    js = f"window.open('{pdf_link}')"
-    html = f'<script>{js}</script>'
-    st.markdown(html, unsafe_allow_html=True)
+    import webbrowser
+    # 원하는 URL
+    url = 'http://naver.me/5k7LrkMC'
+    # 새 창에서 URL 열기
+    webbrowser.open_new_tab(url)
 else :
   st.write("로그인 하세요(로그인 대기시간 약20초)")
+
+  ##   streamlit run pharmacy_model_streamlit.py
