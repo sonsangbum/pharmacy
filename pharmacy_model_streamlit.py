@@ -261,11 +261,10 @@ if user_id=='phar' and user_password == "1234" :
       st.write("월요일부터 토요일까지 예측값만 출력됩니다.")
 
   if st2.button("분석자료"):
-    import webbrowser
     # 원하는 URL
     url = 'http://naver.me/5k7LrkMC'
     # 새 창에서 URL 열기
-    webbrowser.open_new_tab(url)
+    st.markdown(f"{url}")
 else :
   st.write("로그인 하세요(로그인 대기시간 약20초)")
 
