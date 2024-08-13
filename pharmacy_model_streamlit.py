@@ -197,7 +197,7 @@ if user_id=='phar' and user_password == "1234" :
   val_year = st.number_input("1.년도 입력(예: 2024년->2024)", value=today.year) 
   val_month = st.number_input("2.월 입력(예: 8월->8)", value=today.month)
   val_day=st.number_input("3.일 입력(예: 12일 -> 12)", value=today.day)
-  val_weekday = st.number_input("4.요일 입력(예:월:0,화:1,수:2,목:3,금:4,토:5)", min_value=0, max_value=5, step=1, format="%d")
+  val_weekday = st.number_input("4.요일 입력(예:월:0,화:1,수:2,목:3,금:4,토:5,일:6)", min_value=0, max_value=6, step=1, format="%d")
   val_SC= st.number_input("5.예상 일조량을 입력(맑음:0,구름조금:25,구름많음:50,흐림:75)", min_value=0, max_value=100, step=1, format="%d")
   val_mintemp= st.number_input("6.예상 최저(▽)온도를 입력")
   val_maxtemp=st.number_input("7.예상 최고(▲)온도를 입력")
@@ -220,8 +220,13 @@ if user_id=='phar' and user_password == "1234" :
     ##예측값 출력
     if val_weekday ==0 :
       st.write(f"월요일 예측건수입니다.")
-      st.write(f"▶▶예측 조제건수: {predicted_b[0]}")
-      st.write(f"COVID19반영 예측 조제건수: {predicted_b_COVID19[0]}")
+      st.write(f"▶▶예측 조제건수: {predicted_b[0]}")   #predicted_b[0]
+      mon_val=1.4
+      predicted_b=predicted_b[0] * mon_val             #predicted_b[0]
+      st.write(f"▶▶가중치적용 예측 조제건수: {predicted_b:.2f}")
+      st.write(f"COVID19반영 예측 조제건수: {predicted_b_COVID19[0]}")  #predicted_b_COVID19[0]}
+      predicted_b_COVID19 =predicted_b_COVID19[0] *mon_val            #predicted_b_COVID19[0]}
+      st.write(f"COVID19반영 가중치적용 예측 조제건수: {predicted_b_COVID19:.2f}")
     elif val_weekday ==1 :
       st.write(f"화요일 예측건수입니다.")
       st.write(f"▶▶예측 조제건수: {predicted_b[0]}")
@@ -231,34 +236,38 @@ if user_id=='phar' and user_password == "1234" :
       st.write(f"▶▶예측 조제건수: {predicted_b[0]}")
       wed_val=1.3
       predicted_b=predicted_b[0] * wed_val
-      predicted_b_COVID19 =predicted_b_COVID19[0] *wed_val
       st.write(f"▶▶가중치적용 예측 조제건수: {predicted_b:.2f}")
       st.write(f"COVID19반영 예측 조제건수: {predicted_b_COVID19[0]}")
+      predicted_b_COVID19 =predicted_b_COVID19[0] *wed_val
       st.write(f"COVID19반영 가중치적용 예측 조제건수: {predicted_b_COVID19:.2f}")
     elif val_weekday ==3 :
       st.write("▶목요일은 가중치 -30%적용한 값도 제공합니다.")
       st.write(f"▶▶예측 조제건수: {predicted_b[0]}")
       thu_val=0.7
       predicted_b=predicted_b[0] * thu_val
-      predicted_b_COVID19 =predicted_b_COVID19[0] * thu_val
       st.write(f"▶▶가중치적용 예측 조제건수: {predicted_b:.2f} ")
       st.write(f"COVID19반영 예측 조제건수: {predicted_b_COVID19[0]}")
+      predicted_b_COVID19 =predicted_b_COVID19[0] * thu_val
       st.write(f"COVID19반영 가중치적용 예측 조제건수: {predicted_b_COVID19:.2f}")
     elif val_weekday == 4 :
       st.write("▶금요일은 가중치 30%적용한 값도 제공합니다.")
       st.write(f"▶▶예측 조제건수: {predicted_b[0]}")
       fri_val=1.3
       predicted_b=predicted_b[0] * fri_val
-      predicted_b_COVID19 =predicted_b_COVID19[0] *fri_val
       st.write(f"▶▶가중치적용 예측 조제건수: {predicted_b:.2f} ")
       st.write(f"COVID19반영 예측 조제건수: {predicted_b_COVID19[0]}")
+      predicted_b_COVID19 =predicted_b_COVID19[0] *fri_val
       st.write(f"COVID19반영 가중치적용 예측 조제건수: {predicted_b_COVID19:.2f}")
     elif val_weekday == 5:
       st.write("토요일 예측건수입니다.")
       st.write(f"▶▶예측 조제건수: {predicted_b[0]}")
       st.write(f"COVID19반영 예측 조제건수: {predicted_b_COVID19[0]}")
+    elif val_weekday == 6:
+      st.write("일요일 예측건수입니다.")
+      st.write(f"▶▶예측 조제건수: {predicted_b[0]}")
+      st.write(f"COVID19반영 예측 조제건수: {predicted_b_COVID19[0]}")      
     else:
-      st.write("월요일부터 토요일까지 예측값만 출력됩니다.")
+      st.write("0~6까지 숫자만 넣어주세요")
 
   if st2.button("분석자료"):
     # 원하는 URL
